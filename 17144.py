@@ -58,23 +58,54 @@ def soonhwan(dust_map, r_gong, c_gong):
     up_gong_tmp = dq([])
     for i in range(1, C):
         up_gong_tmp.append(dust_map[r_gong][i])
-    for i in range(r_gong-1, 0, -1):
-        up_gong_tmp.append(dust_map[i][c_gong])
-    for i in range(C-2, 0, -1):
+    for i in range(r_gong-1, -1, -1):
+        up_gong_tmp.append(dust_map[i][C-1])
+    for i in range(C-2, -1, -1):
         up_gong_tmp.append(dust_map[0][i])
     for i in range(1, r_gong-1):
         up_gong_tmp.append(dust_map[i][c_gong])
     # 회전!
-    up_gong_tmp.appendleft(up_gong_tmp.pop())
-
+    up_gong_tmp.pop()
+    up_gong_tmp.appendleft(0)
     # 값 대입
     for i in range(1, C):
         dust_map[r_gong][i] = up_gong_tmp.popleft()
-    for i in range(r_gong-1, 0, -1):
-        dust_map[i][c_gong] = up_gong_tmp.popleft()
-    for i in range(C-2, 0, -1):
+    for i in range(r_gong-1, -1, -1):
+        dust_map[i][C-1] = up_gong_tmp.popleft()
+    for i in range(C-2, -1, -1):
         dust_map[0][i] = up_gong_tmp.popleft()
     for i in range(1, r_gong-1):
+        dust_map[i][c_gong] = up_gong_tmp.popleft()
+
+
+
+    r_gong += 1
+    # 아래쪽 공기청정기 순환 먼지 deque에 넣기
+    up_gong_tmp = dq([])
+    for i in range(1, C):
+        up_gong_tmp.append(dust_map[r_gong][i])
+    for i in range(r_gong+1, R):
+        up_gong_tmp.append(dust_map[i][C-1])
+    for i in range(C-2, -1, -1):
+        up_gong_tmp.append(dust_map[R-1][i])
+    for i in range(R-2, r_gong, -1):
+        up_gong_tmp.append(dust_map[i][c_gong])
+    # 회전!
+    up_gong_tmp.pop()
+    up_gong_tmp.appendleft(0)
+
+    # 값 대입
+    for i in range(1, C):
+#        print(r_gong, i)
+        dust_map[r_gong][i] = up_gong_tmp.popleft()
+    for i in range(r_gong+1, R):
+#        print(i, C-1)
+        dust_map[i][C-1] = up_gong_tmp.popleft()
+    for i in range(C-2, -1, -1):
+
+        dust_map[R-1][i] = up_gong_tmp.popleft()
+    for i in range(R-2, r_gong, -1):
+#        print(i, c_gong)
         dust_map[i][c_gong] = up_gong_tmp.popleft()
 
     return dust_map
@@ -86,7 +117,12 @@ r_gong, c_gong = find_gong(dust_map)
 for t in range(T):
     # 1. 확산
     dust_map = hwaksan(dust_map, r_gong, c_gong)
-    print_2d(dust_map)
+    #print_2d(dust_map)
     dust_map = soonhwan(dust_map, r_gong, c_gong)
-    print_2d(dust_map)
-    # T초 동안 아래의 sequence 실행
+    #print_2d(dust_map)
+
+res = 0
+for d in dust_map:
+    res += sum(d)
+
+print(res + 2)
