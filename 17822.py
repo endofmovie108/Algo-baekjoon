@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(10000) # 재귀 깊이 한도 올리기!
 sys.stdin = open('input.txt', 'rt')
 
 from collections import deque as dq
