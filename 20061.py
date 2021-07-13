@@ -26,7 +26,6 @@ def onlyUpdate(n_blocks, xs, ys, maps):
         maps[xs[i]][ys[i]] = 1
 
 def oneLineFull(maps, CLR):
-    list_oneLineFull = []
     for i in range(4, 10):
         for j in range(4):
             if CLR == GRN and maps[i][j] == 0:
@@ -34,22 +33,28 @@ def oneLineFull(maps, CLR):
             elif CLR == BLU and maps[j][i] == 0:
                 break
         else: # 전부 1이여서 full line일 때
-            list_oneLineFull.append(i)
-    return list_oneLineFull
+            return True, i
+    return False, 0
 
-def pullAndUpdate(list_olf, maps, CLR):
-    for olf in list_olf:
-        for i in range(olf, 4, -1):
-            for j in range(4):
-                if CLR == GRN:
+def pullAndUpdate(olf_idx, maps, CLR):
+    #for olf in list_olf:
+    for i in range(olf_idx, 3, -1):
+        for j in range(4):
+            if CLR == GRN:
+                if olf_idx == 4:
+                    maps[i][j] = 0
+                else:
                     maps[i][j] = maps[i-1][j]
                     maps[i-1][j] = 0
-                elif CLR == BLU:
+            elif CLR == BLU:
+                if olf_idx == 4:
+                    maps[j][i] = 0
+                else:
                     maps[j][i] = maps[j][i-1]
                     maps[j][i-1] = 0
 
 def pushAndPullUpdate(n_inBorder, maps, CLR):
-    for i in range(10-1-n_inBorder, 4, -1):
+    for i in range(10-1-n_inBorder, 3, -1):
         for j in range(4):
             if CLR == GRN:
                 maps[i+n_inBorder][j] = maps[i][j]
@@ -100,11 +105,12 @@ def Mover(n_blocks, xs_ori, ys_ori, maps, CLR):
     onlyUpdate(n_blocks, xs, ys, maps)
     
     # 만약 one line full 인 라인이 있다면
-    list_oneLinFull = oneLineFull(maps, CLR)
-    if len(list_oneLinFull):
-        score += len(list_oneLinFull)
-        pullAndUpdate(list_oneLinFull, maps, CLR)
-
+    OLF_FLAG = True
+    while OLF_FLAG:
+        OLF_FLAG, olf_idx = oneLineFull(maps, CLR)
+        if OLF_FLAG:
+            score += 1
+            pullAndUpdate(olf_idx, maps, CLR)
 
     # 만약 경계안에 block이 존재한다면
     n_inBorder = isBlockInBorder(maps, CLR)
@@ -136,10 +142,9 @@ for i in range(N):
         xs.append(x+1)
         ys.append(y)
 
-
     total_score += Mover(n_blocks, xs, ys, maps, GRN)
     total_score += Mover(n_blocks, xs, ys, maps, BLU)
-    print_maps(maps)
+    #print_maps(maps)
 
 grn_score = Area_score(maps, GRN)
 blu_score = Area_score(maps, BLU)
