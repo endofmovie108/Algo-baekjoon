@@ -36,10 +36,11 @@ def moveTest(r, c, d, i):
     while True:
         rr, cc = r+dr[i], c+dc[i]
         if maps[rr][cc] != '#' and maps[rr][cc] != 'O':
-            d+=1
+            d += 1
             r, c = rr, cc
         elif maps[rr][cc] == 'O':
             d += 1
+            r, c = rr, cc
             flag = 1
             break
         else:
