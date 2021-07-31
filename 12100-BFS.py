@@ -10,7 +10,6 @@ DIR_DN = 2
 DIR_LT = 3
 
 maps_all = dq([[maps, lv]])
-print(maps_all)
 
 def DIR2RC(d_idx, i, j):
     global N, DIR_UP, DIR_RT, DIR_DN, DIR_LT
@@ -20,10 +19,8 @@ def DIR2RC(d_idx, i, j):
     elif    d_idx == DIR_LT: r, c = i, j
     return r, c
 
-
 # doMove
 def doMove(mp, d_idx):
-    print(d_idx)
     global N
     mp_new = [[0]*N for _ in range(N)]
     mp_cands = [dq([]) for _ in range(N)]

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43cbf8c-3295-433e-80d4-b2a47ade1d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/12100-BFS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12100-BFS.py" beforeDir="false" afterPath="$PROJECT_DIR$/12100-BFS.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../inflearn" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
   <component name="RunManager" selected="Python.12100-BFS (1)">
     <configuration name="12100-BFS (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -171,38 +171,42 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="165" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1622552823290" />
-    <state width="1515" height="164" key="GridCell.Tab.0.bottom" timestamp="1627713642742">
+    <state width="1515" height="164" key="GridCell.Tab.0.bottom" timestamp="1627714282250">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="164" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1627713642742" />
-    <state width="1515" height="164" key="GridCell.Tab.0.center" timestamp="1627713642742">
+    <state width="1515" height="164" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1627714282250" />
+    <state width="1515" height="164" key="GridCell.Tab.0.center" timestamp="1627714282246">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="164" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1627713642742" />
-    <state width="1515" height="164" key="GridCell.Tab.0.left" timestamp="1627713642742">
+    <state width="1515" height="164" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1627714282246" />
+    <state width="1515" height="164" key="GridCell.Tab.0.left" timestamp="1627714282245">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="164" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1627713642742" />
-    <state width="1515" height="164" key="GridCell.Tab.0.right" timestamp="1627713642742">
+    <state width="1515" height="164" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1627714282245" />
+    <state width="1515" height="164" key="GridCell.Tab.0.right" timestamp="1627714282248">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="164" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1627713642742" />
-    <state width="1515" height="164" key="GridCell.Tab.1.bottom" timestamp="1627713641211">
+    <state width="1515" height="164" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1627714282248" />
+    <state width="1515" height="164" key="GridCell.Tab.1.bottom" timestamp="1627714282255">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="164" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1627713641211" />
-    <state width="1515" height="164" key="GridCell.Tab.1.center" timestamp="1627713641210">
+    <state width="1515" height="164" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1627714282255" />
+    <state width="1515" height="164" key="GridCell.Tab.1.center" timestamp="1627714282252">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="164" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1627713641210" />
-    <state width="1515" height="164" key="GridCell.Tab.1.left" timestamp="1627713641210">
+    <state width="1515" height="164" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1627714282252" />
+    <state width="1515" height="164" key="GridCell.Tab.1.left" timestamp="1627714282250">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="164" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1627713641210" />
-    <state width="1515" height="164" key="GridCell.Tab.1.right" timestamp="1627713641211">
+    <state width="1515" height="164" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1627714282250" />
+    <state width="1515" height="164" key="GridCell.Tab.1.right" timestamp="1627714282253">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="164" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1627713641211" />
+    <state width="1515" height="164" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1627714282253" />
+    <state x="277" y="59" key="SettingsEditor" timestamp="1627713823751">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="277" y="59" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1627713823751" />
     <state x="787" y="35" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1627299393412">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -247,8 +251,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/12100-BFS.py</url>
-          <line>74</line>
-          <option name="timeStamp" value="70" />
+          <line>41</line>
+          <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
