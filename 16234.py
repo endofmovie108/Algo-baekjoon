@@ -1,67 +1,58 @@
 import sys
-sys.setrecursionlimit(10000)
-sys.stdin = open('input.txt', 'rt')
+sys.setrecursionlimit(10000) # 재귀 깊이 한도 올리기!
+#sys.stdin = open('input.txt', 'rt')
 N, L, R = map(int, input().split())
 maps = [list(map(int, input().split())) for _ in range(N)]
+dr = [0, 1, 0, -1]
+dc = [1, 0, -1, 0]
 
-def inMaps(r, c):
-    global N
-    return 0<=r<N and 0<=c<N
+def notInMaps(r, c):
+    if 0<=r<N and 0<=c<N: return False
+    else: return True
 
-def finderDFS(maps, visits, val_cur, r, c, nBor):
-    dr = [0, 1, 0, -1]
-    dc = [1, 0, -1, 0]
-    if not inMaps(r, c):
-        return
-    if visits[r][c] == 1:
-        return
-
-    visits[r][c] = 1
-    if L <= abs(val_cur-maps[r][c]) <= R:
-        nBor.append([r, c])
+def findNbor(maps, visits, curr_val, rt, ct, Nbor, lv):
+    global N, L, R, dr, dc
+    if notInMaps(rt, ct): return
+    if visits[rt][ct] == 1: return
+    visits[rt][ct] = 1
+    if lv == 0:
+        Nbor.append([rt, ct])
+    else:
+        if L <= abs(curr_val-maps[rt][ct]) <= R:
+            # if connected
+            Nbor.append([rt, ct])
+        else:
+            return
 
     for i in range(4):
-        rt, ct = r+dr[i], c+dc[i]
-        finderDFS(maps, visits, val_cur, rt, ct, nBor)
+        findNbor(maps, visits, maps[rt][ct], rt+dr[i], ct+dc[i], Nbor, lv+1)
 
-def findNbor(maps):
-    global N
-    visits = [[0]*N for _ in range(N)]
-    nBors = []
+def findNbors(maps):
+    global N, L, R
+    Nbors = []
     for r in range(N):
         for c in range(N):
-            val_cur = maps[r][c]
-            nBor = []
-            nBor.append([r, c])
-            finderDFS(maps, visits, val_cur, r, c, nBor)
-            if not len(nBor) > 1:
-                nBor = []
-            visits[r][c] = 1
-            if len(nBor) > 0:
-                nBors.append(nBor)
-    return nBors
+            Nbor = []
+            visits = [[0] * N for _ in range(N)]
+            findNbor(maps, visits, maps[r][c], r, c, Nbor, 0)
+            if len(Nbor) > 1: Nbors.append(Nbor)
+    return Nbors
 
-def doAvg(maps, nBors):
-    for nBor in nBors:
-        if len(nBor) == 0: continue
-        nBor_avgval=0
-        for [r, c] in nBor:
-            nBor_avgval += maps[r][c]
-        nBor_avgval/=len(nBor)
-        for [r, c] in nBor:
-            maps[r][c] = int(nBor_avgval)
+def update(maps, Nbors):
+    for Nbor in Nbors:
+        avg_val = 0
+        for [r, c] in Nbor:
+            avg_val += maps[r][c]
+        avg_val /= len(Nbor)
+        avg_val = int(avg_val)
+        for [r, c] in Nbor:
+            maps[r][c] = avg_val
 
 cnt = 0
 while True:
-    # find neighbors
-    nBors = findNbor(maps)
-
-    if len(nBors) == 0:
-        break
-
-    # do averaging
-    doAvg(maps, nBors)
+    Nbors = findNbors(maps)
+    if len(Nbors) == 0: break
+    update(maps, Nbors)
     cnt += 1
-
+    #printMaps(maps)
 print(cnt)
-print(maps)
