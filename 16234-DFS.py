@@ -19,14 +19,13 @@ def findNbor(maps, visits, curr_val, rt, ct, rt_prev, ct_prev, Nbor, cond_prev):
     global N, L, R, dr, dc
     if notInMaps(rt, ct): return
     if visits[rt][ct] == 1: return
-    visits[rt][ct] = 1
     cond = meetCond(curr_val, maps[rt][ct])
+
     if len(Nbor) == 0 or cond:
-        if cond_prev == False:
-            Nbor.append([rt_prev, ct_prev])
-            Nbor.append([rt, ct])
-        else:
-            Nbor.append([rt, ct])
+        visits[rt][ct] = 1
+        Nbor.append([rt, ct])
+    else:
+        return
 
     for i in range(4):
         findNbor(maps, visits, maps[rt][ct], rt+dr[i], ct+dc[i], rt, ct, Nbor, cond)
