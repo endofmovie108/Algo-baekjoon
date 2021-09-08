@@ -111,11 +111,9 @@ def moveShark(r, c, rt, ct, shark_idx, shark_maps, shark_stats, ii):
     shark_maps[rt][ct] = shark_idx
 
 def moveSharks(shark_stats, shark_maps, smell_maps):
-    for shark_idx, shark_stat in enumerate(shark_stats):
-        shark_idx += 1
+    for shark_stat in shark_stats:
         # cond 1: 아무 냄새가 안나는 곳
-        [shark_idx_tmp, r, c, dir] = shark_stat
-        if shark_idx_tmp == 0: continue
+        [shark_idx, r, c, dir] = shark_stat
         for i in range(4):
             ii = returnDir(shark_dir_priors, shark_idx, dir, i)
             rt, ct = r+dr[ii], c+dc[ii]
