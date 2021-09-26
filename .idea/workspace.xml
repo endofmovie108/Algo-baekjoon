@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c43cbf8c-3295-433e-80d4-b2a47ade1d12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,31 +30,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../inflearn" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
-  <component name="RunManager" selected="Python.19237">
-    <configuration name="12100-BFS (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Algo-python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/12100-BFS.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.17143">
     <configuration name="16234-DFS" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Algo-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,6 +68,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/16236.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="17143" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Algo-python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/17143.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -140,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.17143" />
         <item itemvalue="Python.19237" />
         <item itemvalue="Python.16236" />
         <item itemvalue="Python.17837" />
         <item itemvalue="Python.16234-DFS" />
-        <item itemvalue="Python.12100-BFS (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -171,49 +172,45 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="480" height="466" key="DebuggerActiveHint/0.0.1536.834@0.0.1536.834" timestamp="1630502130746" />
-    <state x="165" y="175" key="FileChooserDialogImpl" timestamp="1622552823290">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="165" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1622552823290" />
-    <state width="1259" height="176" key="GridCell.Tab.0.bottom" timestamp="1630650170407">
+    <state width="617" height="176" key="GridCell.Tab.0.bottom" timestamp="1632631646707">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1259" height="176" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1630650170407" />
+    <state width="617" height="176" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1632631646707" />
     <state width="1515" height="246" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="1259" height="176" key="GridCell.Tab.0.center" timestamp="1630650170404">
+    <state width="617" height="176" key="GridCell.Tab.0.center" timestamp="1632631646707">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1259" height="176" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1630650170404" />
+    <state width="617" height="176" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1632631646707" />
     <state width="1515" height="246" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="1259" height="176" key="GridCell.Tab.0.left" timestamp="1630650170403">
+    <state width="617" height="176" key="GridCell.Tab.0.left" timestamp="1632631646706">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1259" height="176" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1630650170403" />
+    <state width="617" height="176" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1632631646706" />
     <state width="1515" height="246" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="1259" height="176" key="GridCell.Tab.0.right" timestamp="1630650170405">
+    <state width="617" height="176" key="GridCell.Tab.0.right" timestamp="1632631646707">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1259" height="176" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1630650170405" />
+    <state width="617" height="176" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1632631646707" />
     <state width="1515" height="246" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="1259" height="176" key="GridCell.Tab.1.bottom" timestamp="1630650170411">
+    <state width="1259" height="278" key="GridCell.Tab.1.bottom" timestamp="1632631490082">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1259" height="176" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1630650170411" />
+    <state width="1259" height="278" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1632631490082" />
     <state width="1515" height="246" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="1259" height="176" key="GridCell.Tab.1.center" timestamp="1630650170409">
+    <state width="1259" height="278" key="GridCell.Tab.1.center" timestamp="1632631490082">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1259" height="176" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1630650170409" />
+    <state width="1259" height="278" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1632631490082" />
     <state width="1515" height="246" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="1259" height="176" key="GridCell.Tab.1.left" timestamp="1630650170408">
+    <state width="1259" height="278" key="GridCell.Tab.1.left" timestamp="1632631490082">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1259" height="176" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1630650170408" />
+    <state width="1259" height="278" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1632631490082" />
     <state width="1515" height="246" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="1259" height="176" key="GridCell.Tab.1.right" timestamp="1630650170410">
+    <state width="1259" height="278" key="GridCell.Tab.1.right" timestamp="1632631490082">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1259" height="176" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1630650170410" />
+    <state width="1259" height="278" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1632631490082" />
     <state width="1515" height="246" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
     <state x="277" y="59" key="SettingsEditor" timestamp="1627713823751">
       <screen x="0" y="0" width="1536" height="834" />
@@ -228,9 +225,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="787" y="35" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1627299393412" />
-    <state x="54" y="154" width="672" height="678" key="search.everywhere.popup" timestamp="1629111552299">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="45" y="127" width="560" height="561" key="search.everywhere.popup" timestamp="1632631298919">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
+    <state x="45" y="127" width="560" height="561" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1632631298919" />
     <state x="54" y="154" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1629111552299" />
   </component>
   <component name="XDebuggerManager">
@@ -310,6 +308,11 @@
           <url>file://$PROJECT_DIR$/19237.py</url>
           <line>58</line>
           <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/17143.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="199" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
