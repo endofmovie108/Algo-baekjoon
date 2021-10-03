@@ -1,66 +1,79 @@
-# 사다리 연결이 가능한 모든 case를 탐색
-# 모든 세로선 출발지 i에서 모든 세로선 종착지 i로 도착해야함
-
 import sys
-sys.stdin = open('input.txt', 'rt')
-N, M, H = map(int, input().split()) # N: row size, H: col size
-lad_stats = [list(map(int, input().split())) for _ in range(M)]
+from collections import deque as dq
+from copy import deepcopy
 
-# 0, 1, 2 : left, down, right
-dr = [0, 1, 0]
-dc = [-1, 0, 1]
-lad_dats = [[1]*N for _ in range(H)]
+# functions
+def printMaps(maps):
+    for r in range(H):
+        print(maps[r])
+    print()
 
-# update lad_stats
-for lad_stat in lad_stats:
-    a, b = lad_stat
-    lad_dats[a-1][b-1] = 2
-    lad_dats[a-1][b] = 0
+def goLeft(c):
+    if c == 0: return N-1
+    else: return c-1
 
-# check all downs
-all_downs = []
-all_downs_cnt = 0
-for r_idx in range(N):
-    for c_idx in range(H):
-        if lad_dats[r_idx][c_idx] == 1:
-            all_downs.append([r_idx, c_idx])
-            all_downs_cnt += 1
+def goRight(c):
+    if c == N-1: return 0
+    else: return c+1
 
-def lad_checker(lad_dats):
-    for c_idx in range(H):
-        loc_r, loc_c = 0, c_idx
-        curr_stat = lad_dats[loc_r][loc_c]
-        while True:
-            loc_r += dr[curr_stat]
-            loc_c += dc[curr_stat]
-            if loc_r == H:
-                if loc_c == c_idx:
-                    out_flag = False
-                    # good condition
-                else:
-                    out_flag = True
-                    # bad condition
-                break
-        if out_flag:
-            break
+def isLeftCenterRightOK(ladMaps, r, c):
+    return ladMaps[r][c] == 0 and ladMaps[r][goLeft(c)] == 0 and ladMaps[r][goRight(c)] == 0
+
+def isCanConnect(ladMaps, r, c):
+    canConnect = isLeftCenterRightOK(ladMaps, r, c)
+    return canConnect
+
+def playLadGame(ladMapsCur, lv):
+    for c in range(N):
+        ct = c
+        for r in range(H):
+            if ladMapsCur[r][ct] == 1:
+                # 만약 가로선이 우측에 있다면
+                ct = goRight(ct)
+            elif ladMapsCur[r][goLeft(ct)] == 1:
+                # 만약 가로선이 좌측에 있다면
+                ct = goLeft(ct)
+        if not ct == c:
+            return False
     else:
         return True
-    return False
 
-def DFS(l, change_cnt):
-    global min_change_cnt
-    if l >= all_downs_cnt:
-        success_flag = lad_checker(lad_dats)
-        if success_flag:
-            if min_change_cnt < change_cnt:
-                min_change_cnt = change_cnt
-            return
-        else:
-            return
+sys.stdin = open('input.txt', 'rt')
+N, M, H = map(int, input().split()) # N: COL, H: ROW, M: 이미 놓여있는 가로선의 수
+conInfo = [list(map(int, input().split())) for _ in range(M)] # [a(row), b(col)]: b번 세로선과 b+1번 세로선을 a번 가로선 위치에서 연결함
+ladMaps = [[0]*N for _ in range(H)]
+for [a, b] in conInfo:
+    ladMaps[a-1][b-1] = 1
 
-    r_idx_d, c_idx_d = all_downs[l]
-    if c_idx_d < H-1 and :
+ladMapsDq = dq()
+lv = 0
+ladMapsDq.append([ladMaps, lv])
+
+while ladMapsDq:
+    [ladMapsCur, lv] = ladMapsDq.popleft()
+    #printMaps(ladMapsCur)
+
+    # level condition
+    if lv > 3:
+        print(-1)
+        break
+
+    # play ladder game
+    gameEnd = playLadGame(ladMapsCur, lv)
+    if gameEnd:
+        print(lv)
+        break
+
+    for r in range(H):
+        for c in range(N):
+            if isCanConnect(ladMapsCur, r, c):
+                ladMapsCur_cpy = deepcopy(ladMapsCur)
+                ladMapsCur_cpy[r][c] = 1
+                ladMapsDq.append([ladMapsCur_cpy, lv+1])
+else:
+    print(-1)
 
 
 
-min_change_cnt = 1e+10
+
+
