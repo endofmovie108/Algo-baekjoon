@@ -51,7 +51,7 @@ ladMapsDq.append([ladMaps, lv])
 
 while ladMapsDq:
     [ladMapsCur, lv] = ladMapsDq.popleft()
-    #printMaps(ladMapsCur)
+    printMaps(ladMapsCur)
 
     # level condition
     if lv > 3:
