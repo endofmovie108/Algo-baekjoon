@@ -1,7 +1,7 @@
 import sys
 from pytictoc import TicToc
 from collections import deque as dq
-from copy import deepcopy
+from copy import copy
 sys.stdin = open('input.txt', 'rt')
 N, M = map(int, input().split())
 virusMaps = [list(map(int, input().split())) for _ in range(N)]
@@ -51,6 +51,10 @@ def isAllVirusSpread(virusMaps_curr):
                 return False
     return True
 
+def copyJY(outList, inList):
+    for idx, inList_sub in enumerate(inList):
+        outList[idx][:] = inList_sub[:]
+
 t.tic()
 # Main
 # 0. select M virus
@@ -69,7 +73,9 @@ virusMselDFS(virusAll_list, 0, [], virusM_list)
 virCaseDq = dq()
 for idx, virus_list in enumerate(virusM_list):
     # create maps
-    virusMaps_cpy = deepcopy(virusMaps)
+    virusMaps_cpy = [[0]*N for _ in range(N)]
+    copyJY(virusMaps_cpy, virusMaps)
+    # virusMaps_cpy = copy(virusMaps)
     for [r, c] in virus_list:
         virusMaps_cpy[r][c] = ACT_VIRUS
     lv = 0
