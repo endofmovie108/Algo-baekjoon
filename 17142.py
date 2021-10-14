@@ -1,132 +1,101 @@
 import sys
-from copy import deepcopy
 from collections import deque as dq
+from copy import deepcopy
 sys.stdin = open('input.txt', 'rt')
 N, M = map(int, input().split())
 virusMaps = [list(map(int, input().split())) for _ in range(N)]
 
+dr = [-1, 0, 1, 0]
+dc = [0, 1, 0, -1]
+ACT_VIRUS = -1
 WALL = 1
 EMPTY = 0
-VIR_NONACT = 2
-VIR_ACT = 3
-
-NO_GO = -1
-GO_EMPTY = 0
-GO_NONACT = 1
-
-dr = [-1, 0, 1, 0]
-dc = [0, 1, 0, -1] # up, right, down, left
+NONACT_VIRUS = 2
 
 # functions
-def printMaps(maps, lv):
+def printMaps(maps):
     for m in maps:
         print(m)
-    print(lv)
     print()
 
-def virusMselDFS(virusSel, lv):
-    global viursAll, virusMsels, V
-    if lv >= V:
+def virusMselDFS(virusAll_list, lv, Msel_list, MselAll_list):
+    if len(Msel_list) >= M:
+        MselAll_list.append(Msel_list)
         return
-    if len(virusSel) == 3:
-        virusMsels.append(virusSel)
+    if lv >= len(virusAll_list):
         return
-    virusMselDFS(virusSel + [virusAll[lv]], lv + 1)
-    virusMselDFS(virusSel, lv + 1)
+    virusMselDFS(virusAll_list, lv + 1, Msel_list + [virusAll_list[lv]], MselAll_list)
+    virusMselDFS(virusAll_list, lv + 1, Msel_list, MselAll_list)
 
-def isVirusCanSpread(maps, r, c, chkMaps):
-    if 0<=r<N and 0<=c<N and chkMaps[r][c] != 1:
-        chkMaps[r][c] = 1
-        if maps[r][c] == EMPTY:
-            return GO_EMPTY
-        elif maps[r][c] == VIR_NONACT:
-            return GO_NONACT
+def isVirusCanSpread(maps, r, c):
+    if 0<=r<N and 0<=c<N and maps[r][c] != WALL and maps[r][c] != ACT_VIRUS:
+        if maps[r][c] == NONACT_VIRUS:
+            spreadCode = NONACT_VIRUS
         else:
-            return NO_GO
+            spreadCode = EMPTY
     else:
-        return NO_GO
+        spreadCode = WALL
+    return spreadCode
 
-def isAllVirusSpread(maps):
+def isVirusSpreadSuccess(maps):
     for r in range(N):
         for c in range(N):
-            if maps[r][c] == 0:
+            if maps[r][c] == EMPTY:
                 return False
-    else:
-        return True
+    return True
 
-virusAll = []
-V = 0
+# Main
+virusAll_list = []
 for r in range(N):
     for c in range(N):
-        if virusMaps[r][c] == VIR_NONACT:
-            virusAll.append([r, c])
-            V += 1
-virusMsels = []
-virusMselDFS([], 0)
-#print(virusMsels)
+        if virusMaps[r][c] == 2:
+            virusAll_list.append([r, c])
 
-# make deque for BFS
-virDq = dq()
-for virusMsel in virusMsels:
-    virusMaps_cpy = [[0]*N for _ in range(N)]
-    for r in range(N):
-        for c in range(N):
-            if virusMaps[r][c] == 1:
-                virusMaps_cpy[r][c] = WALL
-            elif virusMaps[r][c] == 0:
-                virusMaps_cpy[r][c] = EMPTY
-            elif virusMaps[r][c] == 2:
-                virusMaps_cpy[r][c] = VIR_NONACT
+print(len(virusAll_list), virusAll_list)
+MselAll_list = []
+virusMselDFS(virusAll_list, 0, [], MselAll_list)
+print(len(MselAll_list), MselAll_list)
 
-    # activate virus
-    chkMaps = [[0]*N for _ in range(N)]
-    vDq = dq()
-    for virusSel in virusMsel:
-        vDq.append([virusSel, 0])
-        [r, c] = virusSel
-        virusMaps_cpy[r][c] = VIR_ACT
-        chkMaps[r][c] = 1
+# create BFS
+statsAll_BFS_dq = dq()
+for Msel_list in MselAll_list:
+    virusMaps_cpy = deepcopy(virusMaps)
+    for [r, c] in Msel_list:
+        virusMaps_cpy[r][c] = ACT_VIRUS
+    isAllNONACT = False
+    statsAll_BFS_dq.append([virusMaps_cpy, deepcopy(Msel_list), 0, isAllNONACT])
 
-    virDq.append([virusMaps_cpy, vDq, 0, chkMaps])
+lv_tmp_prev = -1
+while statsAll_BFS_dq:
+    statsAll = statsAll_BFS_dq.popleft()
+    [virusMaps_tmp, Msel_list_tmp, lv_tmp, isAllNONACT_tmp] = statsAll
 
-# main, BFS 1
-while virDq:
-    vir = virDq.popleft()
-    [virusMaps, vDq, lv, chkMaps] = vir
+    if lv_tmp != lv_tmp_prev:
+        print(lv_tmp, isAllNONACT_tmp)
+        printMaps(virusMaps_tmp)
+    lv_tmp_prev = lv_tmp
 
-    # BFS 2
+    Msel_list_next = []
     atLeastOneSpread = False
-    v_lv_prev = -1
-    while vDq:
-        [[v_r, v_c], v_lv] = vDq.popleft()
-        if v_lv_prev > -1 and v_lv != v_lv_prev:
-            vDq.append([[v_r, v_c], v_lv])
+    isAllNONACT = True
+    for [r, c] in Msel_list_tmp:
+        for d in range(4):
+            rt, ct = r + dr[d], c + dc[d]
+            spreadCode = isVirusCanSpread(virusMaps_tmp, rt, ct)
+            if spreadCode != WALL:
+                isAllNONACT &= (spreadCode == NONACT_VIRUS)
+                virusMaps_tmp[rt][ct] = ACT_VIRUS
+                Msel_list_next.append([rt, ct])
+                atLeastOneSpread = True
+
+    if not atLeastOneSpread:
+        if isVirusSpreadSuccess(virusMaps_tmp):
+            if isAllNONACT_tmp:
+                print(lv_tmp - 1)
+            else:
+                print(lv_tmp)
             break
-        else:
-            for dir in range(4):
-                v_rt = v_r + dr[dir]
-                v_ct = v_c + dc[dir]
-                spreadCode = isVirusCanSpread(virusMaps, v_rt, v_ct, chkMaps)
-                if spreadCode == NO_GO:
-                    atLeastOneSpread = False
-
-                elif spreadCode == GO_EMPTY:
-                    atLeastOneSpread = True
-                    vDq.append([[v_rt, v_ct], v_lv + 1])
-                    virusMaps[v_rt][v_ct] = VIR_ACT
-
-                elif spreadCode == GO_NONACT:
-                    atLeastOneSpread = True
-                    vDq.insert(1, [[v_rt, v_ct], v_lv])
-                    virusMaps[v_rt][v_ct] = VIR_ACT
-        v_lv_prev = v_lv
-
-    printMaps(virusMaps, lv)
-    if atLeastOneSpread:
-        virDq.append([virusMaps, vDq, lv+1, chkMaps])
     else:
-        isSuccess = isAllVirusSpread(virusMaps)
-        if isSuccess:
-            print("success!", lv)
-            break
+        statsAll_BFS_dq.append([virusMaps_tmp, Msel_list_next, lv_tmp+1, isAllNONACT])
+
 
