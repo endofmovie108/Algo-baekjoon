@@ -1,12 +1,13 @@
 import sys
 from collections import deque as dq
+
 sys.stdin = open('input.txt', 'rt')
-N, M, taxi_fuel = map(int, input().split())
-maps = [list(map(int, input().split())) for _ in range(N)]
-taxi_r, taxi_c = map(int, input().split())
+
+N, M, taxi_fuel = map(int, sys.stdin.readline().rstrip().rsplit())
+maps = [list(map(int, sys.stdin.readline().rstrip().rsplit())) for _ in range(N)]
+taxi_r, taxi_c = map(int, sys.stdin.readline().rstrip().rsplit())
 taxi_r, taxi_c = taxi_r-1, taxi_c-1
-people_locs = [list(map(int, input().split())) for _ in range(M)]
-people_locs_dict = dict()
+people_locs_ori = [list(map(int, sys.stdin.readline().rstrip().rsplit())) for _ in range(M)]
 
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
@@ -14,154 +15,149 @@ dc = [0, 1, 0, -1]
 WALL = -2
 ROAD = -1
 
+# classes
+class taxiSta:
+    def __init__(self, r, c, fuel):
+        self.r = r
+        self.c = c
+        self.fuel = fuel
+
+class personSta:
+    def __init__(self, r, c, r_dst, c_dst):
+        self.r = r
+        self.c = c
+        self.r_dst = r_dst
+        self.c_dst = c_dst
+
 # functions
 def isInMaps(r, c):
-    return 0<=r<N and 0<=c<N
+    return 0 <= r < N and 0 <= c < N
 
-def isFuelIsNotEnough(people_locs_dict, taxi_r, taxi_c, taxi_fuel):
-    res_flag = False
-    for v in people_locs_dict.values():
-        [r, c, _, _] = v
-        if (taxi_fuel >= (abs(taxi_r-r)+abs(taxi_c-c))):
-            res_flag = True
-            break
-    return not res_flag
+def copy2dMaps(dst_maps, src_maps):
+    for r_idx, src_map in enumerate(src_maps):
+        dst_maps[r_idx] = src_map[:]
+    return True
 
-def selectNearestPersonBFS(maps, maps_chk, maps_chk_ori, people_locs_dict, taxi_r, taxi_c, taxi_fuel):
-    if isFuelIsNotEnough(people_locs_dict, taxi_r, taxi_c, taxi_fuel):
-        working = False
-        return working, -1, taxi_fuel
-    # copy maps_chk_ori
-    for r in range(N):
-        maps_chk[r][:] = maps_chk_ori[r][:]
+def isFuelEmpty(taxi_fuel):
+    if taxi_fuel<0: return True
+    else: return False
 
-    # find nearest person BFS
+def isPersonIsHere(maps, r, c):
+    if maps[r][c] >= 0: return True
+    else: return False
+
+def moveTaxiToPerson(taxi_sta, people_stats_list, maps, maps_chk, maps_chk_ori):
+    #copy2dMaps(maps_chk, maps_chk_ori)
+    maps_chk_dict = dict()
+
     findDq = dq()
-    findDq.append([taxi_r, taxi_c, 0])
-    used_fuel = 0
-    working = True
-    p_idxs = []
-    p_idx = -1
-    find_flag = False
-    find_lv = -1
+    findDq.append([taxi_sta.r, taxi_sta.c, taxi_sta.fuel])
+    working, find_flag = True, False
+    find_r, find_c, find_idx, find_fuel = 1e+10, 1e+10, -1, -1
 
     while findDq:
-        [r, c, lv] = findDq.popleft()
-        if taxi_fuel < lv:
-            return
-        if find_flag == True and find_lv != lv:
-            break
-        maps_chk[r][c] = 1
-        if maps[r][c] >= 0:
-            p_idxs.append(maps[r][c])
-            find_flag = True
-            find_lv = lv
+        [taxi_r, taxi_c, taxi_fuel] = findDq.popleft()
+        maps_chk_dict[(taxi_r, taxi_c)] = True
+        #maps_chk[taxi_r][taxi_c] = True
 
-        for d in range(4):
-            rt, ct = r + dr[d], c + dc[d]
-            if isInMaps(rt, ct) and maps_chk[rt][ct] == 0 and maps[rt][ct] != WALL:
-                findDq.append([rt, ct, lv+1])
-
-    if find_flag:
-        used_fuel = find_lv
-        taxi_fuel -= used_fuel
-        if taxi_fuel < 0:
+        if isFuelEmpty(taxi_fuel):
             working = False
-        else:
-            working = True
-            # find p_idx
-            people_locs_sel = []
-            if len(p_idxs) > 1:
-                for idx in p_idxs:
-                    tmp = people_locs_dict[idx].copy()
-                    tmp.append(idx)
-                    people_locs_sel.append(tmp)
-                people_locs_sel.sort(key = lambda x:(x[0], x[1]))
-                p_idx = people_locs_sel[0][4]
-                # sorting
-            else:
-                p_idx = p_idxs[0]
-    else:
-        working = False
-    return working, p_idx, taxi_fuel
+            break
+        if find_flag and find_fuel != taxi_fuel:
+            break
+        if isPersonIsHere(maps, taxi_r, taxi_c):
+            if not find_flag:
+                find_flag = True
+                find_fuel = taxi_fuel
+            if taxi_r <= find_r:
+                find_r, find_c = taxi_r, taxi_c
+                find_idx = maps[find_r][find_c]
+                if taxi_c < find_c:
+                    find_r, find_c, find_idx = taxi_r, taxi_c, maps[find_r][find_c]
+        for d in range(4):
+            rt, ct = taxi_r + dr[d], taxi_c + dc[d]
+            if isInMaps(rt, ct) and (maps_chk_dict.get((rt, ct)) is None) and maps[rt][ct] != WALL:
+                findDq.append([rt, ct, taxi_fuel-1])
 
-def findShortestWayBFS(maps, maps_chk, maps_chk_ori, taxi_r, taxi_c, taxi_fuel, pr, pc):
-    # fuel condition
-    if taxi_fuel < (abs(taxi_r-pr)+abs(taxi_c-pc)):
-        working = False
-        return working, taxi_fuel
+    taxi_sta.r, taxi_sta.c, taxi_sta.fuel = find_r, find_c, find_fuel
+    working &= find_flag
+    if working:
+        # update maps
+        maps[find_r][find_c] = ROAD
 
-    # copy maps_chk_ori
-    for r in range(N):
-        maps_chk[r][:] = maps_chk_ori[r][:]
+    return working, taxi_sta, people_stats_list, maps, find_idx
+
+def movePersonToDest(find_idx, taxi_sta, people_stats_list, maps, maps_chk, maps_chk_ori):
+    #copy2dMaps(maps_chk, maps_chk_ori)
+    maps_chk_dict = dict()
+    working = True
+    find_flag = False
+    find_r, find_c, find_fuel = 1e+10, 1e+10, -1
+    used_fuel = taxi_sta.fuel
 
     findDq = dq()
-    findDq.append([taxi_r, taxi_c, 0])
+    findDq.append([taxi_sta.r, taxi_sta.c, taxi_sta.fuel])
+    p_sta = people_stats_list[find_idx]
+    p_r, p_c, p_r_dst, p_c_dst = p_sta.r, p_sta.c, p_sta.r_dst, p_sta.c_dst
 
-    working = False
     while findDq:
-        [r, c, lv] = findDq.popleft()
-        maps_chk[r][c] = 1
-
-        if taxi_fuel < lv:
+        [taxi_r, taxi_c, taxi_fuel] = findDq.popleft()
+        maps_chk_dict[(taxi_r, taxi_c)] = True
+        #maps_chk[taxi_r][taxi_c] = True
+        if isFuelEmpty(taxi_fuel):
+            working = False
             break
-
-        if r == pr and c == pc:
-            used_fuel = lv
-            taxi_fuel -= used_fuel
-            if taxi_fuel < 0:
-                working = False
-            else:
-                taxi_fuel += (2 * used_fuel)
-                working = True
+        if taxi_r == p_r_dst and taxi_c == p_c_dst:
+            find_r, find_c, find_fuel = p_r_dst, p_c_dst, taxi_fuel
+            find_flag = True
             break
 
         for d in range(4):
-            rt, ct = r + dr[d], c + dc[d]
-            if isInMaps(rt, ct) and maps_chk[rt][ct] == 0 and maps[rt][ct] != WALL:
-                findDq.append([rt, ct, lv+1])
+            rt, ct = taxi_r + dr[d], taxi_c + dc[d]
+            if isInMaps(rt, ct) and (maps_chk_dict.get((rt, ct)) is None) and maps[rt][ct] != WALL:
+                findDq.append([rt, ct, taxi_fuel-1])
 
-    return working, taxi_fuel
+    used_fuel -= find_fuel
+    taxi_sta.r, taxi_sta.c, taxi_sta.fuel = find_r, find_c, find_fuel
+    working &= find_flag
+    if working:
+        # get fuel
+        taxi_sta.fuel += (used_fuel + used_fuel)
 
+    return working, taxi_sta, people_stats_list, maps
 
-
-# place people and refactor map
-maps_chk_ori = [[0]*N for _ in range(N)]
-maps_chk = [[0]*N for _ in range(N)]
+# main
+# prepare maps, check array
+maps_chk = [[False]*N for _ in range(N)]
+maps_chk_ori = [[False]*N for _ in range(N)]
 for r in range(N):
     for c in range(N):
         if maps[r][c] == 0:
             maps[r][c] = ROAD
-        if maps[r][c] == 1:
+        elif maps[r][c] == 1:
             maps[r][c] = WALL
-            maps_chk_ori[r][c] = 1
+            maps_chk_ori[r][c] = True
 
-for p_idx, p_loc in enumerate(people_locs):
-    [r, c, rd, cd] = p_loc
-    maps[r-1][c-1] = p_idx
-    people_locs_dict[p_idx] = [r-1, c-1, rd-1, cd-1]
+# set people, taxi location
+people_stats_list = list()
+for i in range(M):
+    [r, c, r_dst, c_dst] = people_locs_ori[i]
+    p_sta = personSta(r=r-1, c=c-1, r_dst=r_dst-1, c_dst=c_dst-1)
+    maps[p_sta.r][p_sta.c] = i
+    people_stats_list.append(p_sta)
+taxi_sta = taxiSta(r=taxi_r, c=taxi_c, fuel=taxi_fuel)
 
-# main
-while people_locs_dict:
-    working, p_idx, taxi_fuel = selectNearestPersonBFS(maps, maps_chk, maps_chk_ori, people_locs_dict, taxi_r, taxi_c, taxi_fuel)
+people_num = M
+while people_num:
+    working, taxi_sta, people_stats_list, maps, find_idx = moveTaxiToPerson(taxi_sta, people_stats_list, maps, maps_chk, maps_chk_ori)
     if not working:
         print(-1)
         break
 
-    # move taxi
-    [pr, pc, pdr, pdc] = people_locs_dict.pop(p_idx)
-    maps[pr][pc] = ROAD
-    taxi_r, taxi_c = pr, pc
-
-    # find shortest way
-    working, taxi_fuel = findShortestWayBFS(maps, maps_chk, maps_chk_ori, taxi_r, taxi_c, taxi_fuel, pdr, pdc)
+    working, taxi_sta, people_stats_list, maps = movePersonToDest(find_idx, taxi_sta, people_stats_list, maps, maps_chk, maps_chk_ori)
     if not working:
         print(-1)
         break
-
-    # move taxi
-    taxi_r, taxi_c = pdr, pdc
+    people_num -= 1
 else:
-    print(taxi_fuel)
-
-
+    print(taxi_sta.fuel)
