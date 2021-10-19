@@ -1,7 +1,9 @@
 import heapq
 
-test_list = [[1, "test", "Sdf"], [0, "what"] ]
-# heapq.heappush(test_list, [1, "test", "Sdf"])
-# heapq.heappush(test_list, [0, "what"])
-heapq.heapify(test_list)
+test_list = [0]*5
+test_list_cpy = test_list.copy()
+for i in range(5):
+    test_list_cpy[i] = 1
+
 print(test_list)
+print(test_list_cpy)
