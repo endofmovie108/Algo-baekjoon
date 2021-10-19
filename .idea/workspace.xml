@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43cbf8c-3295-433e-80d4-b2a47ade1d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/21610.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13458.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/16235.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5373.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +37,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
-  <component name="RunManager" selected="Python.21610">
-    <configuration name="19238-others" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.16235">
+    <configuration name="13458" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Algo-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -47,7 +50,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/19238-others.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/13458.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -56,7 +59,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="19238" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="16235" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Algo-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -68,7 +71,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/19238.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/16235.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -142,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.16235" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.13458" />
         <item itemvalue="Python.21610" />
         <item itemvalue="Python.20056" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.19238" />
-        <item itemvalue="Python.19238-others" />
       </list>
     </recent_temporary>
   </component>
@@ -189,45 +192,45 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state width="1259" height="223" key="GridCell.Tab.-1.right/0.0.1280.689@0.0.1280.689" timestamp="1633348973375" />
-    <state width="417" height="216" key="GridCell.Tab.0.bottom" timestamp="1634532922573">
+    <state width="360" height="216" key="GridCell.Tab.0.bottom" timestamp="1634571826012">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="417" height="216" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1634532922573" />
+    <state width="360" height="216" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1634571826012" />
     <state width="1515" height="246" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="417" height="216" key="GridCell.Tab.0.center" timestamp="1634532922573">
+    <state width="360" height="216" key="GridCell.Tab.0.center" timestamp="1634571826011">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="417" height="216" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1634532922573" />
+    <state width="360" height="216" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1634571826011" />
     <state width="1515" height="246" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="417" height="216" key="GridCell.Tab.0.left" timestamp="1634532922573">
+    <state width="360" height="216" key="GridCell.Tab.0.left" timestamp="1634571826011">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="417" height="216" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1634532922573" />
+    <state width="360" height="216" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1634571826011" />
     <state width="1515" height="246" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="417" height="216" key="GridCell.Tab.0.right" timestamp="1634532922573">
+    <state width="360" height="216" key="GridCell.Tab.0.right" timestamp="1634571826011">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="417" height="216" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1634532922573" />
+    <state width="360" height="216" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1634571826011" />
     <state width="1515" height="246" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state x="678" y="579" width="533" height="216" key="GridCell.Tab.1.bottom" timestamp="1634532706022">
+    <state x="678" y="579" width="297" height="216" key="GridCell.Tab.1.bottom" timestamp="1634569304487">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="678" y="579" width="533" height="216" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1634532706022" />
+    <state x="678" y="579" width="297" height="216" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1634569304487" />
     <state width="1515" height="246" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state x="678" y="579" width="533" height="216" key="GridCell.Tab.1.center" timestamp="1634532706022">
+    <state x="678" y="579" width="297" height="216" key="GridCell.Tab.1.center" timestamp="1634569304486">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="678" y="579" width="533" height="216" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1634532706022" />
+    <state x="678" y="579" width="297" height="216" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1634569304486" />
     <state width="1515" height="246" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state x="678" y="579" width="533" height="216" key="GridCell.Tab.1.left" timestamp="1634532706022">
+    <state x="678" y="579" width="297" height="216" key="GridCell.Tab.1.left" timestamp="1634569304486">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="678" y="579" width="533" height="216" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1634532706022" />
+    <state x="678" y="579" width="297" height="216" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1634569304486" />
     <state width="1515" height="246" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state x="678" y="579" width="533" height="216" key="GridCell.Tab.1.right" timestamp="1634532706022">
+    <state x="678" y="579" width="297" height="216" key="GridCell.Tab.1.right" timestamp="1634569304486">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="678" y="579" width="533" height="216" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1634532706022" />
+    <state x="678" y="579" width="297" height="216" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1634569304486" />
     <state width="1515" height="246" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
     <state x="678" y="579" width="423" height="365" key="GridCell.Tab.2.bottom" timestamp="1634272829701">
       <screen x="0" y="0" width="1280" height="689" />
@@ -433,11 +436,6 @@
           <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="301" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/20056.py</url>
           <line>62</line>
           <option name="timeStamp" value="303" />
@@ -446,6 +444,11 @@
           <url>file://$PROJECT_DIR$/21610.py</url>
           <line>60</line>
           <option name="timeStamp" value="309" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/16235.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="312" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
