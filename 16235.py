@@ -1,5 +1,4 @@
 import sys
-import heapq
 sys.stdin = open('input.txt', 'rt')
 
 # global variables
@@ -8,77 +7,57 @@ A = [list(map(int, sys.stdin.readline().rstrip().rsplit())) for _ in range(N)]
 tree_stats = [list(map(int, sys.stdin.readline().rstrip().rsplit())) for _ in range(M)]
 maps = [[5]*N for _ in range(N)]
 
-tree_allive = {}
-tree_dead = {}
+tree_alv_locs = {}
 dr = [-1, -1, -1, 0, 0, 1, 1, 1]
 dc = [-1, 0, 1, -1, 1, -1, 0, 1]
 
 # functions
 def isInMaps(r, c): return 0<=r<N and 0<=c<N
 
-def heapqPushTo(tgt_dict, tgt_key, dat):
-    if tgt_dict.get(tgt_key) is None:
-        tgt_dict[tgt_key] = []
-    heapq.heappush(tgt_dict[tgt_key], dat)
+def appendAgeTo(locs_dict, tree_loc, age):
+    if locs_dict.get(tree_loc) is None:
+        locs_dict[tree_loc] = []
+    locs_dict[tree_loc].append(age)
 
-def heapqCreate(tgt_dict, tgt_key, dat_list):
-    if tgt_dict.get(tgt_key) is None:
-        tgt_dict[tgt_key] = []
-    tgt_dict[tgt_key] = dat_list
+def isTreeCanEatYB(age, tree_loc):
+    (r, c) = tree_loc
+    if maps[r][c] >= age:
+        return True
+    else:
+        return False
 
-def appendDict(tgt_dict, tgt_key, dat):
-    if tgt_dict.get(tgt_key) is None:
-        tgt_dict[tgt_key] = []
-    tgt_dict[tgt_key].append(dat)
-
-def spring():
-    global tree_allive, tree_dead, maps
-    empty_tree_locs = []
-    for tree_loc in tree_allive.keys():
-        t_allive_hq = tree_allive.get(tree_loc)
+def spring_and_summer():
+    global tree_alv_locs, maps
+    tree_alv_locs_cpy = tree_alv_locs.copy()
+    for tree_loc in tree_alv_locs_cpy.keys():
         (r, c) = tree_loc
-        z_buf = []
-        while t_allive_hq:
-            z = heapq.heappop(t_allive_hq)
-            if maps[r][c] - z >= 0:
-                maps[r][c] -= z
-                z += 1
-                z_buf.append(z)
+        TREE_ALV_AGES_list = tree_alv_locs[tree_loc]
+        if len(TREE_ALV_AGES_list) > 1: TREE_ALV_AGES_list.sort()
+        for idx, age in enumerate(TREE_ALV_AGES_list):
+            if isTreeCanEatYB(age, tree_loc):
+                maps[r][c] -= age
+                TREE_ALV_AGES_list[idx] += 1
             else:
-                heapqPushTo(tree_allive, tree_loc, z)
-                break
-        if t_allive_hq:
-            while t_allive_hq:
-                appendDict(tree_dead, tree_loc, heapq.heappop(t_allive_hq))
-        if z_buf:
-            while z_buf:
-                heapqPushTo(tree_allive, tree_loc, z_buf.pop())
-        else:
-            empty_tree_locs.append(tree_loc)
-
-    for tree_loc in empty_tree_locs:
-        del(tree_allive[tree_loc])
-
-def summer():
-    global tree_dead, maps
-    for tree_loc in tree_dead.keys():
-        t_dead_list = tree_dead[tree_loc]
-        (r, c) = tree_loc
-        for z in t_dead_list:
-            maps[r][c] += int(z/2)
+                if len(TREE_ALV_AGES_list[idx:]) > 0:
+                    TREE_DEAD_AGES_list = TREE_ALV_AGES_list[idx:]
+                    for age in TREE_DEAD_AGES_list:
+                        maps[r][c] += int(age/2)
+                    del(TREE_ALV_AGES_list[idx:])
+        if len(TREE_ALV_AGES_list) < 1:
+            del(tree_alv_locs[tree_loc])
 
 def fall():
-    global maps, tree_allive
-    tree_allive_cpy = tree_allive.copy()
-    for tree_loc in tree_allive_cpy.keys():
+    global tree_alv_locs
+    tree_alv_locs_cpy = tree_alv_locs.copy()
+    for tree_loc in tree_alv_locs_cpy.keys():
         (r, c) = tree_loc
-        t_allive_hq = tree_allive_cpy[tree_loc]
-        for z in t_allive_hq.copy():
-            if z > 0 and z % 5 == 0:
+        TREE_ALV_AGES_list = tree_alv_locs_cpy[tree_loc]
+        for age in TREE_ALV_AGES_list:
+            if age % 5 == 0:
                 for d in range(8):
                     rt, ct = r + dr[d], c + dc[d]
                     if isInMaps(rt, ct):
-                        heapqPushTo(tree_allive, (rt, ct), 1)
+                        appendAgeTo(tree_alv_locs, (rt, ct), 1)
 
 def winter():
     global maps, A
@@ -87,22 +66,17 @@ def winter():
             maps[r][c] += A[r][c]
 
 # main
-for i, [x, y, z] in enumerate(tree_stats):
+for [x, y, z] in tree_stats:
     x, y = x-1, y-1
-    heapqPushTo(tree_allive, (x, y), z)
+    appendAgeTo(tree_alv_locs, (x,y), z)
 
 for k in range(K):
-    tree_dead = {}
-    spring()
-    summer()
+    spring_and_summer()
     fall()
     winter()
 
-cnt = 0
-for tree_loc in tree_allive.keys():
-    t_allive_hq = tree_allive[tree_loc]
-    cnt += len(t_allive_hq)
-print(cnt)
-
-
+res = 0
+for tree_loc in tree_alv_locs.keys():
+    res += len(tree_alv_locs.get(tree_loc))
+print(res)
 
