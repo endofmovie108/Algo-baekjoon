@@ -21,17 +21,20 @@ def minWayFinderBFS(N, M):
     N, M = N-1, M-1
     findDq = dq()
     findDq.append([0, 0, 1])
-    chk[0][0] = VISIT
+
     while findDq:
         [r, c, l] = findDq.popleft()
+        if not isInMaps(r, c) or chk[r][c] == VISIT or maps[r][c] == WALL:
+            continue
+        chk[r][c] = VISIT
+
         if r == N and c == M:
             print(l)
             break
         for d in range(4):
             rt = r + dr[d]
             ct = c + dc[d]
-            if isInMaps(rt, ct) and chk[rt][ct] == NOT_VISIT and maps[rt][ct] == ROAD:
-                findDq.append([rt, ct, l + 1])
+            findDq.append([rt, ct, l + 1])
 
 # main
 minWayFinderBFS(N, M)
