@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43cbf8c-3295-433e-80d4-b2a47ade1d12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/2178.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1260.py" beforeDir="false" afterPath="$PROJECT_DIR$/1260.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +34,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
-  <component name="RunManager" selected="Python.1260">
+  <component name="RunManager" selected="Python.2178">
     <configuration name="1260" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Algo-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -48,27 +48,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1260.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="16235" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Algo-python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/16235.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -119,6 +98,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="2178" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Algo-python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2178.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Algo-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.2178" />
         <item itemvalue="Python.1260" />
         <item itemvalue="Python.21609" />
         <item itemvalue="Python.17140" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.16235" />
       </list>
     </recent_temporary>
   </component>
@@ -164,10 +164,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="547" y="0" key="#xdebugger.evaluate" timestamp="1634454575694">
+    <state x="438" y="102" key="#xdebugger.evaluate" timestamp="1634925176510">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="547" y="0" key="#xdebugger.evaluate/0.0.1280.689@0.0.1280.689" timestamp="1634454575694" />
+    <state x="438" y="102" key="#xdebugger.evaluate/0.0.1280.689@0.0.1280.689" timestamp="1634925176510" />
     <state x="147" y="119" key="#xdebugger.evaluate/0.0.1536.834@0.0.1536.834" timestamp="1629114140497" />
     <state width="480" height="466" key="DebuggerActiveHint" timestamp="1630502130746">
       <screen x="0" y="0" width="1536" height="834" />
@@ -189,45 +189,45 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state width="1259" height="223" key="GridCell.Tab.-1.right/0.0.1280.689@0.0.1280.689" timestamp="1633348973375" />
-    <state width="470" height="217" key="GridCell.Tab.0.bottom" timestamp="1634924186148">
+    <state width="428" height="250" key="GridCell.Tab.0.bottom" timestamp="1634955755704">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="470" height="217" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1634924186148" />
+    <state width="428" height="250" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1634955755704" />
     <state width="1515" height="246" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="470" height="217" key="GridCell.Tab.0.center" timestamp="1634924186148">
+    <state width="428" height="250" key="GridCell.Tab.0.center" timestamp="1634955755704">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="470" height="217" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1634924186148" />
+    <state width="428" height="250" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1634955755704" />
     <state width="1515" height="246" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="470" height="217" key="GridCell.Tab.0.left" timestamp="1634924186148">
+    <state width="428" height="250" key="GridCell.Tab.0.left" timestamp="1634955755703">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="470" height="217" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1634924186148" />
+    <state width="428" height="250" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1634955755703" />
     <state width="1515" height="246" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state width="470" height="217" key="GridCell.Tab.0.right" timestamp="1634924186148">
+    <state width="428" height="250" key="GridCell.Tab.0.right" timestamp="1634955755704">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="470" height="217" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1634924186148" />
+    <state width="428" height="250" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1634955755704" />
     <state width="1515" height="246" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state x="678" y="579" width="404" height="142" key="GridCell.Tab.1.bottom" timestamp="1634923983565">
+    <state x="678" y="579" width="532" height="250" key="GridCell.Tab.1.bottom" timestamp="1634955120277">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="678" y="579" width="404" height="142" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1634923983565" />
+    <state x="678" y="579" width="532" height="250" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1634955120277" />
     <state width="1515" height="246" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state x="678" y="579" width="404" height="142" key="GridCell.Tab.1.center" timestamp="1634923983565">
+    <state x="678" y="579" width="532" height="250" key="GridCell.Tab.1.center" timestamp="1634955120277">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="678" y="579" width="404" height="142" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1634923983565" />
+    <state x="678" y="579" width="532" height="250" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1634955120277" />
     <state width="1515" height="246" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state x="678" y="579" width="404" height="142" key="GridCell.Tab.1.left" timestamp="1634923983565">
+    <state x="678" y="579" width="532" height="250" key="GridCell.Tab.1.left" timestamp="1634955120277">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="678" y="579" width="404" height="142" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1634923983565" />
+    <state x="678" y="579" width="532" height="250" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1634955120277" />
     <state width="1515" height="246" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
-    <state x="678" y="579" width="404" height="142" key="GridCell.Tab.1.right" timestamp="1634923983565">
+    <state x="678" y="579" width="532" height="250" key="GridCell.Tab.1.right" timestamp="1634955120277">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="678" y="579" width="404" height="142" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1634923983565" />
+    <state x="678" y="579" width="532" height="250" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1634955120277" />
     <state width="1515" height="246" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1630572769640" />
     <state x="678" y="579" width="423" height="365" key="GridCell.Tab.2.bottom" timestamp="1634272829701">
       <screen x="0" y="0" width="1280" height="689" />
@@ -254,10 +254,10 @@
     </state>
     <state width="326" height="351" key="XDebugger.FullValuePopup/0.0.1280.689@0.0.1280.689" timestamp="1630646096659" />
     <state width="391" height="424" key="XDebugger.FullValuePopup/0.0.1536.834@0.0.1536.834" timestamp="1630497514802" />
-    <state x="498" y="198" key="com.intellij.ide.util.TipDialog" timestamp="1634311191317">
+    <state x="498" y="198" key="com.intellij.ide.util.TipDialog" timestamp="1634953992904">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="498" y="198" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1634311191317" />
+    <state x="498" y="198" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1634953992904" />
     <state x="589" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1634654455903">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -465,28 +465,5 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="num_dict" language="Python" />
-        <watch expression="all_locs_list" language="Python" />
-        <watch expression="rt, ct" language="Python" />
-        <watch expression="findDq" language="Python" />
-        <watch expression="isInMaps(rt, c)" language="Python" />
-        <watch expression="maps[rt][c] == BLACK" language="Python" />
-        <watch expression="maps[rt][c]" language="Python" />
-        <watch expression="maps[r][c]" language="Python" />
-        <watch expression="maps" language="Python" />
-        <watch expression="connectInfo[lv]" language="Python" />
-        <watch expression="connectInfo" language="Python" />
-        <watch expression="chk" language="Python" />
-        <watch expression="connectInfo.get(tmp_key)" language="Python" />
-        <watch expression="res" language="Python" />
-        <watch expression="chk" language="Python" />
-        <watch expression="list(connectInfo.get(tmp_key))" language="Python" />
-        <watch expression="" />
-        <watch expression="res" language="Python" />
-        <watch expression="N" language="Python" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
